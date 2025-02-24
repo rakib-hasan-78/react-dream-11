@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@100..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* code reset */
+    *{
+        @apply m-0 p-0 box-border; 
+    }
+
+    body{
+        @apply w-full min-h-screen font-self font-normal capitalize bg-white !important;
+    }
+    main{
+        @apply w-10/12 mx-auto;
+    }
+}
