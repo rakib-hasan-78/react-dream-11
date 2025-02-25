@@ -16,7 +16,7 @@ export default {
         '3xs' : '20rem',
         '2xs': '21.875rem',
         xs : '28.125rem',
-        sm: '40.625rem',
+        sm: '34.375rem',
         md: '47.9375rem',
         lg: '61.25rem',
         xl: '67.5rem',

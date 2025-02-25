@@ -16,7 +16,13 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Assemble Your Ultimate Dream 11 Cricket Team</h1> <br />
+      <h2>subscribe to our newsletters</h2> <br />
+      <h3>available players : </h3> <br />
+      <h4>virat koheli</h4> <br />
+      <h5>rating</h5> <br />
+      <span>left hand bat</span> <br />
+      <span className='country'>xindia</span> <br />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -33,3 +39,4 @@ function App() {
 }
 
 export default App
+
