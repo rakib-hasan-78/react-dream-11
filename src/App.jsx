@@ -23,6 +23,7 @@ function App() {
       <h5>rating</h5> <br />
       <span>left hand bat</span> <br />
       <span className='country'>xindia</span> <br />
+      <p>extent</p>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -34,9 +35,13 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <div className='btn-div'>
+        <button className='btn'>claim free credit</button>
+      </div>
     </>
   )
 }
 
 export default App
+
 
