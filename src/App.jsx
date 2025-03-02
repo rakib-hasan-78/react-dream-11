@@ -1,6 +1,8 @@
 
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Contents from './components/Contents';
+
 function App() {
 
 
@@ -9,6 +11,7 @@ function App() {
       <main>
         <Header />
         <Hero />
+        <Contents />
       </main>
     </>
   )

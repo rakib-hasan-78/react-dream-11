@@ -12,9 +12,9 @@ const Header = () => {
       setIsOpen(!isOpen);
   }
     return (
-        <header className='w-full h-auto flex flex-wrap flex-row items-center justify-between py-2 my-3 bg-white border border-red-500'>
+        <header className='w-full h-auto flex flex-wrap flex-row items-center justify-between py-2 my-3 bg-white'>
         {/* logo section ===> */}
-        <div className="w-1/12 border">
+        <div className="3xs:w-2/12 sm:w-1/12 xl:w-1/12">
           <img src={logo} alt="company-logo" />
         </div>
         <div className="w-5/12 flex items-center 3xs:justify-evenly xl:justify-between">
@@ -35,11 +35,12 @@ const Header = () => {
         </div>
         {/* burgers */}
         <div onClick={burgerHandler} 
-          className=' 3xs:flex xl:hidden w-14 p-1 flex-col items-center justify-center gap-1 cursor-pointer'>
-            <div className={`w-full h-1.5 bg-stone-700 rounded-lg transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2.5':''}`}></div>
-            <div className={`w-full h-1.5 bg-stone-700 rounded-lg transition-all duration-300 ${isOpen?'rotate-12 opacity-0':''}`}></div>
-            <div className={`w-full h-1.5 bg-stone-700 rounded-lg transition-all duration-300 ${isOpen? '-rotate-45 -translate-y-2.5':''}`}></div>
+          className=' 3xs:flex xl:hidden 3xs:w-10 p-1 flex-col items-center justify-center gap-1 cursor-pointer'>
+            <div className={`w-full 3xs:h-1 bg-stone-700 rounded-lg transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2.5':''}`}></div>
+            <div className={`w-full 3xs:h-1 bg-stone-700 rounded-lg transition-all duration-300 ${isOpen?'rotate-12 opacity-0':''}`}></div>
+            <div className={`w-full 3xs:h-1 bg-stone-700 rounded-lg transition-all duration-300 ${isOpen? '-rotate-45 -translate-y-2.5':''}`}></div>
         </div>
+        {/* small , medium & lg screen navigation bar */}
         {
           isOpen && (
 
