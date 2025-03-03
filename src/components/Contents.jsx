@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import Selection from './Selection';
 import Card from './Card';
-
+import SelectedPlayers from './SelectedPlayers';
 
 const Contents = () => {
     return (
@@ -15,6 +15,7 @@ const Contents = () => {
         <Card />
         <Card />
         <Card />
+        <SelectedPlayers />
         </div>
         </section>
     );

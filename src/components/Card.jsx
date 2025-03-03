@@ -9,8 +9,8 @@ const Card = () => {
     return (
         <div className='w-3/12 border p-4 rounded-xl'>
             {/* card image block */}
-            <div className='w-full h-[240px] overflow-hidden transition-all duration-200 hover:scale-105 shadow-sm'>
-                <img className='rounded-xl' src={player} alt="#" />
+            <div className='w-full h-[240px]  shadow-sm'>
+                <img className='rounded-xl overflow-hidden transition-all duration-200 hover:scale-105' src={player} alt="#" />
             </div>
             {/* player name section */}
             <div className='w-full h-auto flex items-center justify-start mt-5 space-x-3'>
