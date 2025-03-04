@@ -39,7 +39,7 @@
         @apply 3xs:text-xs sm:text-sm lg:text-base font-bold leading-5;
     }
     p{
-        @apply font-serif 3xs:font-light lg:font-medium leading-7 3xs:text-xs md:text-sm lg:text-2xl !important;
+        @apply font-serif 3xs:font-light lg:font-medium leading-7 3xs:text-xs md:text-sm lg:text-lg !important;
     }
     span{
         @apply 3xs:text-xs sm:text-sm lg:text-base leading-5 font-normal;
