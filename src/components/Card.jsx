@@ -7,7 +7,7 @@ import { faFlag } from '@fortawesome/free-solid-svg-icons';
 
 const Card = () => {
     return (
-        <div className='w-3/12 border p-4 rounded-xl'>
+        <div className='3xs:w-11/12 sm:w-6/12 md:w-5/12 lg:w-3/12 border p-4 rounded-xl'>
             {/* card image block */}
             <div className='w-full h-[240px]  shadow-sm'>
                 <img className='rounded-xl overflow-hidden transition-all duration-200 hover:scale-105' src={player} alt="#" />
