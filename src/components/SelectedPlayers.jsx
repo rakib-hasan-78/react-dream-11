@@ -5,7 +5,7 @@ import SinglePlayer from './SinglePlayer';
 
 const SelectedPlayers = () => {
     return (
-        <div className='w-10/12 h-auto py-2 flex flex-wrap items-center justify-between border'>
+        <div className='w-10/12 h-auto py-2 flex flex-wrap items-center justify-between'>
             {/* selected players' cards ===> */}
             <div className='w-full h-auto px-2 py-2 flex flex-col items-center justify-center content-center space-y-5'>
                 <SinglePlayer />

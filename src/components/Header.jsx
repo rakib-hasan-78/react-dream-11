@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import dollar from '../assets/dollar.svg';
 import logo from '../assets/logo.png';
 import { useState } from 'react';
-const Header = () => {
+
+const Header = ({coin}) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +29,7 @@ const Header = () => {
 
           {/* coins collections */}
           <div className='flex items-center justify-center gap-2 border p-2 rounded-lg'>
-            <span>0</span>
+            <span>{coin}</span>
             <span>coins</span>
             <img src={dollar} alt="dollar-icon" />
           </div>
@@ -61,7 +62,7 @@ const Header = () => {
 };
 
 Header.propTypes = {
-    
+    coin:PropTypes.number.isRequired,
 };
 
 export default Header;

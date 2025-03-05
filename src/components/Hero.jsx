@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import heroImage from '../assets/bg-shadow.png';
 import bannerImage from '../assets/banner-main.png';
-const Hero = () => {
+const Hero = ({coinHandler}) => {
     return (
         <div className="w-full 3xs:h-[420px] md:h-[545px] border-2 bg-neutral-900 relative z-10 rounded-xl py-2">
 
@@ -18,7 +18,9 @@ const Hero = () => {
                 </h1>
                 <p className='text-white/70'>Beyond Boundaries Beyond Limits</p>
                 <div className='3xs:w-10/12 md:w-6/12 lg:w-2/12 border btn-div'>
-                    <button className='btn w-full' type="button">claim free credit</button>
+                    <button
+                     onClick={coinHandler}
+                     className='btn w-full' type="button">claim free credit</button>
                 </div>
 
             </div>
@@ -27,7 +29,7 @@ const Hero = () => {
 };
 
 Hero.propTypes = {
-    
+    coinHandler: PropTypes.func.isRequired,
 };
 
 export default Hero;
