@@ -14,5 +14,13 @@ const addCoins = (amount) => {
     saveCoins(updatedCoins);
 };
 
+const getUIChange = ()=>{
+    const getLS = localStorage.getItem('UI');
+    return getLS ? JSON.parse(getLS) : '';
+}
 
-export {getCoins, addCoins, saveCoins}
+const saveUI =(UI)=>{
+    localStorage.setItem('UI', JSON.stringify(UI))
+}
+
+export {getCoins, addCoins, saveCoins, getUIChange, saveUI}

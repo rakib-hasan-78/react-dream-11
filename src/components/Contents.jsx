@@ -2,18 +2,27 @@
 import PropTypes from 'prop-types';
 import Selection from './Selection';
 import SelectedPlayers from './SelectedPlayers';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CardsContents from './CardsContents';
+import { getUIChange, saveUI } from '../ls/LS';
 
 const Contents = () => {
     const [selectContent, setSelectContent] = useState('available');
+
+    useEffect(()=>{
+        const storedUI = getUIChange();
+        if(storedUI)setSelectContent(storedUI)
+    },[selectContent])
+
     const availableHandler = (e)=>{
         e.preventDefault();
         setSelectContent('available')
+        saveUI('available')
     }
     const selectHandler = (e) =>{
         e.preventDefault();
         setSelectContent('selected');
+        saveUI('selected')
     }
     return (
         <section className='w-full h-auto flex flex-col items-center justify-center'>
