@@ -41,7 +41,7 @@ const Footer = () => {
             </main>
             <div className='w-full border-b border-slate-100/25 mb-11'></div>
             <div className='w-full h-auto pb-2 pt-0.5 flex items-center justify-center'>
-                <span  className='text-white/35'> &copy; {} HSB Inc. All Rights Reserved.</span>
+                <span  className='text-white/35'> &copy; {new Date().getFullYear()} HSB Inc. All Rights Reserved.</span>
             </div>
         </div>
     );

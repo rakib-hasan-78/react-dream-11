@@ -23,4 +23,6 @@ const saveUI =(UI)=>{
     localStorage.setItem('UI', JSON.stringify(UI))
 }
 
+
+
 export {getCoins, addCoins, saveCoins, getUIChange, saveUI}
