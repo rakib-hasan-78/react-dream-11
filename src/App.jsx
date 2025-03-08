@@ -48,7 +48,7 @@ function App() {
       <main>
         <Header coin={coin} />
         <Hero coinHandler={coinHandler} />
-        <Contents />
+        <Contents coin={coin} setCoin={setCoin} />
         <Newsletter />
       </main>
       <Footer />

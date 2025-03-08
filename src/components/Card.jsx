@@ -3,9 +3,51 @@ import PropTypes from 'prop-types';
 import user from '../assets/user.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFlag } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
+import { saveCoins } from '../ls/LS';
 
-const Card = ({player}) => {
+
+const Card = ({player, setSelectedPlayers, selectedPlayers, coin, setCoin}) => {
     const{name, country, category, image, bat, bowl, id, price } = player;
+
+    // ** choose player handler====>
+    
+        const choosePlayerHandlers = (e)=>{
+            e.preventDefault();
+
+            if(selectedPlayers.length >= 15){
+                toast.error(`error! you can't add more than 15 players.`,{
+                    position:'top-center'
+                })
+                return;
+            }
+            if (coin < price) {
+                toast.error(`insufficient balance ! pls reclaim credits`,{
+                    position:'top-center',
+                })
+                return;
+            }
+            if (selectedPlayers.find(selectedPlayer=>selectedPlayer.id===id)) {
+                toast.error(`you can't add one player twice in the list`,{
+                    position:'top-center'
+                })
+                return;
+            } else {
+                toast.success(`${name} is added to your list`,{
+                    position:'top-center'
+                })
+                setCoin(pre=>{
+                    const current = pre - price;
+                    saveCoins(current);
+                    return current;
+                })
+                setSelectedPlayers([...selectedPlayers, player])
+                return;
+            }
+        }
+
+           
+
     return (
         <div className='3xs:w-11/12 sm:w-6/12 md:w-5/12 lg:w-3/12 border p-4 rounded-xl'>
             {/* card image block */}
@@ -42,7 +84,9 @@ const Card = ({player}) => {
             </div>
             <div className='w-full h-auto flex items-center justify-between'>
                 <h6 className='text-sm'>price : $ <span className='font-bold text-sm'>{price}</span></h6>
-                <button className='text-xs border p-1.5 rounded-lg capitalize cursor-pointer'>choose player</button>
+                <button
+                onClick={choosePlayerHandlers} 
+                className='text-xs border p-1.5 rounded-lg capitalize cursor-pointer'>choose player</button>
             </div>
         </div>
     );
@@ -58,7 +102,11 @@ Card.propTypes = {
         bowl: PropTypes.bool.isRequired,
         price: PropTypes.number.isRequired,
         image: PropTypes.string.isRequired,
-    })
+    }),
+    selectedPlayers:PropTypes.array.isRequired,
+    setSelectedPlayers: PropTypes.func.isRequired,
+    coin: PropTypes.number.isRequired,
+    setCoin: PropTypes.func,
 };
 
 export default Card;

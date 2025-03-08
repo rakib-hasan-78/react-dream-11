@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react';
 import CardsContents from './CardsContents';
 import { getUIChange, saveUI } from '../ls/LS';
 
-const Contents = () => {
+
+const Contents = ({coin, setCoin}) => {
     const [selectContent, setSelectContent] = useState('available');
     const [players , setPlayers] = useState([]);
     const [selectedPlayers, setSelectedPlayers] = useState([]);
@@ -45,7 +46,7 @@ const Contents = () => {
         <div className='w-full h-auto pt-3 pb-2 flex flex-wrap 3xs:flex-col md:flex-row items-center justify-center gap-10'>
         {
             selectContent === 'available' && (
-                <CardsContents players={players} />
+                <CardsContents players={players} setSelectedPlayers={setSelectedPlayers} selectedPlayers={selectedPlayers} coin={coin} setCoin={setCoin} />
             )
         }
         {
@@ -57,6 +58,11 @@ const Contents = () => {
         </section>
     );
 };
+
+Contents.propTypes = {
+    coin: PropTypes.number,
+    setCoin: PropTypes.func,
+}
 
 
 export default Contents;
