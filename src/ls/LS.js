@@ -24,5 +24,29 @@ const saveUI =(UI)=>{
 }
 
 
+// ** LS for selected Players =====>
 
-export {getCoins, addCoins, saveCoins, getUIChange, saveUI}
+const selectedPlayerGetLS = ()=>{
+    const LS = localStorage.getItem('selected-players');
+    return LS ? JSON.parse(LS) : [];
+}
+
+const selectedPlayerSaveLS = (player)=>{
+    localStorage.setItem('selected-players', JSON.stringify(player))
+}
+
+const addSelectedPlayers = (id)=>{
+    const getLS = selectedPlayerGetLS();
+    if (!getLS.includes(id)) {
+        getLS.push(id)
+        selectedPlayerSaveLS(getLS)
+    }
+}
+
+const removeSelectedPlayer = id =>{
+    const getLS = selectedPlayerGetLS();
+    const removePlayer = getLS.filter(ids=>ids!==id);
+    selectedPlayerSaveLS(removePlayer);
+}
+
+export {getCoins, addCoins, saveCoins, getUIChange, saveUI, addSelectedPlayers, selectedPlayerGetLS, removeSelectedPlayer}

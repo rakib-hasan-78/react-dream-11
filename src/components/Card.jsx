@@ -4,7 +4,7 @@ import user from '../assets/user.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFlag } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
-import { saveCoins } from '../ls/LS';
+import { addSelectedPlayers, saveCoins } from '../ls/LS';
 
 
 const Card = ({player, setSelectedPlayers, selectedPlayers, coin, setCoin}) => {
@@ -41,6 +41,7 @@ const Card = ({player, setSelectedPlayers, selectedPlayers, coin, setCoin}) => {
                     saveCoins(current);
                     return current;
                 })
+                addSelectedPlayers(id);
                 setSelectedPlayers([...selectedPlayers, player])
                 return;
             }
