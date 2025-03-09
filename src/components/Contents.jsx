@@ -51,7 +51,7 @@ const Contents = ({coin, setCoin}) => {
         }
         {
             selectContent === 'selected' && (
-                <SelectedPlayers selectedPlayers={selectedPlayers} coin={coin} setCoin={setCoin} setSelectedPlayers={setSelectedPlayers} />
+                <SelectedPlayers selectedPlayers={selectedPlayers} coin={coin} setCoin={setCoin} setSelectedPlayers={setSelectedPlayers} availableHandler={availableHandler} />
             )
         }
         </div>
