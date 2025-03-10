@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 
 
+
 const CardsContents = ({players, setSelectedPlayers, selectedPlayers, coin, setCoin}) => {
+    
 
     return (
         <div className='w-full h-auto pt-3 pb-2 flex flex-wrap 3xs:flex-col md:flex-row items-center justify-center gap-10'>

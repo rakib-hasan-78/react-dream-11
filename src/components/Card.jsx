@@ -7,7 +7,10 @@ import { toast } from 'react-toastify';
 import { addSelectedPlayers, saveCoins } from '../ls/LS';
 
 
+
+
 const Card = ({player, setSelectedPlayers, selectedPlayers, coin, setCoin}) => {
+    
     const{name, country, category, image, bat, bowl, id, price } = player;
 
     // ** choose player handler====>
@@ -42,7 +45,7 @@ const Card = ({player, setSelectedPlayers, selectedPlayers, coin, setCoin}) => {
                     return current;
                 })
                 addSelectedPlayers(id);
-                setSelectedPlayers([...selectedPlayers, player])
+                setSelectedPlayers([...selectedPlayers, player]);
                 return;
             }
         }
@@ -87,7 +90,7 @@ const Card = ({player, setSelectedPlayers, selectedPlayers, coin, setCoin}) => {
                 <h6 className='text-sm'>price : $ <span className='font-bold text-sm'>{price}</span></h6>
                 <button
                 onClick={choosePlayerHandlers} 
-                className='text-xs border p-1.5 rounded-lg capitalize cursor-pointer'>choose player</button>
+                className={`text-xs border p-1.5 rounded-lg capitalize cursor-pointer ${selectedPlayers.some(player => player.id === id) ? 'bg-red-600 text-red-50' : ''}`}>{selectedPlayers.some(player => player.id === id) ?'selected player':'choose player'}</button>
             </div>
         </div>
     );
