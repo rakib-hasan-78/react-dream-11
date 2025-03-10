@@ -4,8 +4,7 @@ import Selection from './Selection';
 import SelectedPlayers from './SelectedPlayers';
 import { useEffect, useState } from 'react';
 import CardsContents from './CardsContents';
-import { getUIChange, saveUI } from '../ls/LS';
-
+import { getUIChange, saveUI, selectedPlayerGetLS } from '../ls/LS';
 
 const Contents = ({coin, setCoin}) => {
     const [selectContent, setSelectContent] = useState('available');
@@ -15,19 +14,33 @@ const Contents = ({coin, setCoin}) => {
    
 
     // use effect for data getting from server=====>
+
     useEffect(()=>{
         fetch('/data/db.json')
             .then(response=>response.json())
             .then(data=>setPlayers(data))
-    },[])
+    },[]);
 
-
-    
     // to save UI changes using LS ====>
+
     useEffect(()=>{
         const storedUI = getUIChange();
         if(storedUI)setSelectContent(storedUI)
-    },[selectContent])
+    },[selectContent]);
+
+    useEffect(()=>{
+        if (players.length>0) {
+            const storedCart = selectedPlayerGetLS();
+            let selectedPlayersList = [];
+            storedCart.forEach(value=>{
+                const player = players.find(player=>player.id ===value);
+                selectedPlayersList.push(player)
+            })
+
+            setSelectedPlayers(selectedPlayersList);
+        }
+
+    },[players]);
 
     // handlers to change UI ====>
     const availableHandler = (e)=>{
