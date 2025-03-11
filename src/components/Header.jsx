@@ -2,23 +2,44 @@
 import PropTypes from 'prop-types';
 import dollar from '../assets/dollar.svg';
 import logo from '../assets/logo.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Header = ({coin}) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const [isScroll, setIsScroll] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(()=>{
+    const header = document.getElementById('header');
+    setScrollPosition(header.offsetTop);
+
+    const scrollHandler =()=>{
+      const scroll = window.scrollY;
+      scroll>=scrollPosition ? setIsScroll(true) : setIsScroll(false);
+    }
+
+    window.addEventListener('scroll', scrollHandler);
+
+      return ()=> {
+        window.removeEventListener('scroll', scrollHandler);
+      }
+  },[scrollPosition])
   // functioning burger
   const burgerHandler = () =>{
       setIsOpen(!isOpen);
   }
+
     return (
-        <header className='w-full h-auto flex flex-wrap flex-row items-center justify-between py-2 my-3 bg-white'>
+        <header 
+        id='header' 
+        className={`w-full h-auto flex flex-wrap flex-row items-center justify-between py-2 my-3 bg-white fixed-top-transition ${isScroll ? 'fixed-top':''}`}>
         {/* logo section ===> */}
         <div className="3xs:w-2/12 sm:w-1/12 xl:w-1/12">
           <img src={logo} alt="company-logo" />
         </div>
-        <div className="w-5/12 flex items-center 3xs:justify-evenly xl:justify-between">
+        <div className="3xs:w-5/12 xl:w-7/12 2xl:w-6/12 3xl:w-6/12 flex items-center 3xs:justify-evenly xl:justify-around">
           {/* navbar */}
           <nav className='3xs:hidden xl:flex flex-row items-center justify-center gap-5 space-x-3 text-black/60'>
             <div><a href="#">home</a></div>
